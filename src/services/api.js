@@ -16,5 +16,23 @@ apiClient.interceptors.request.use(request => {
 export default {
   getHello(){
     return apiClient.get(`/hello`);
-  }  
+  },  
+  getShowTasks(){
+    return apiClient.get('');
+  },
+  deleteTask(idTask){
+    return apiClient.delete(`/${idTask}`);
+  },
+  completeTask(idTask){
+    return apiClient.put(`/${idTask}/complete`);
+  },
+  addTask(description){
+    return apiClient.post('', null, {
+      params: {
+        description: description
+      }
+    });
+  }
 };
+
+
